@@ -33,16 +33,32 @@ function loaderAnimation(){
     tl.to("#loader",{
         opacity:0,
         duration:0.4,
-        delay: 1,
+        delay: 0.4,
     })
     tl.from("#page1",{
         y:1600,
-        duration:0.6,
+        duration:0.5,
         opacity: 0,
         ease: Power4,
     })
     tl.to("#loader",{
-        display: 0
+        display: "none",
+    })
+    tl.from("#nav",{
+        opacity:0,
+    })
+    tl.from(".hero h1 , .hero h2",{
+        y: 150,
+        stagger: 0.3,
+        delay: 0.1,
+        opacity: 0
     })
 }
 loaderAnimation()
+
+document.addEventListener("mousemove", function(dets){
+    gsap.to("#crsr",{
+        top:dets.y,
+        left:dets.x,
+    })
+})
